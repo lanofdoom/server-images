@@ -12,9 +12,13 @@ jobs:
     uses: ./.github/workflows/counterstrikesource.yml
   push-hiddensource:
     uses: ./.github/workflows/hiddensource.yml
+    needs: push-counterstrikesource
   push-left4dead2:
     uses: ./.github/workflows/left4dead2.yml
+    needs: push-hiddensource
   push-satisfactory:
     uses: ./.github/workflows/satisfactory.yml
+    needs: push-left4dead2
   push-sourceforts:
     uses: ./.github/workflows/sourceforts.yml
+    needs: push-satisfactory
