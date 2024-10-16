@@ -1,14 +1,14 @@
 # Build artifacts
 bazel-bin/
 bazel-genfiles/
-bazel-servers/
+bazel-server-images/
 bazel-out/
 bazel-testlogs/
 
 # Build artifacts as files
 bazel-bin
 bazel-genfiles
-bazel-servers
+bazel-server-images
 bazel-out
 bazel-testlogs
 
