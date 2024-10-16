@@ -10,8 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Free space
-        run: bazelisk clean --expunge
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
       - name: Build and test image
         run: bazelisk build -c opt //...
       - name: Log into registry
