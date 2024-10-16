@@ -1,0 +1,128 @@
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_load", "oci_push")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+#
+# Source Dedicated Server Layer
+#
+
+pkg_tar(
+    name = "srcds_layer",
+    srcs = ["@srcds_base_2013//:files"],
+    package_dir = "/opt/game",
+)
+
+#
+# SourceForts Layer
+#
+
+pkg_tar(
+    name = "sourceforts_layer",
+    package_dir = "/opt/game",
+    deps = ["@sourceforts//file"],
+)
+
+#
+# MetaMod Layer
+#
+
+pkg_tar(
+    name = "metamod_layer",
+    package_dir = "/opt/game/sfclassic",
+    deps = ["@metamod_linux//file"],
+)
+
+pkg_tar(
+    name = "metamod_vdf_layer",
+    srcs = [":metamod.vdf"],
+    package_dir = "/opt/game/sfclassic/addons",
+)
+
+#
+# SourceMod Layer
+#
+
+pkg_tar(
+    name = "sourcemod_layer",
+    empty_dirs = ["/opt/game/sfclassic/addons/sourcemod/configs"],
+    package_dir = "/opt/game/sfclassic",
+    deps = ["@sourcemod_linux//file"],
+)
+
+#
+# Authorization Layer
+#
+
+pkg_tar(
+    name = "authorization_layer",
+    package_dir = "/opt/game/sfclassic",
+    deps = ["@auth_by_steam_group_linux//file"],
+)
+
+#
+# Config Layer
+#
+
+pkg_tar(
+    name = "config_layer",
+    srcs = [":server.cfg"],
+    package_dir = "/opt/game/sfclassic/cfg/templates",
+)
+
+#
+# Final Image
+#
+
+pkg_tar(
+    name = "entrypoint_layer",
+    srcs = [":entrypoint.sh"],
+    package_dir = "/",
+    symlinks = {
+        "/root/.steam/sdk32/steamclient.so": "/opt/game/bin/steamclient.so",
+        "/opt/game/bin/materialsystem.so": "/opt/game/bin/materialsystem_srv.so",
+        "/opt/game/bin/replay.so": "/opt/game/bin/replay_srv.so",
+        "/opt/game/bin/scenefilecache.so": "/opt/game/bin/scenefilecache_srv.so",
+        "/opt/game/bin/shaderapiempty.so": "/opt/game/bin/shaderapiempty_srv.so",
+        "/opt/game/bin/soundemittersystem.so": "/opt/game/bin/soundemittersystem_srv.so",
+        "/opt/game/bin/studiorender.so": "/opt/game/bin/studiorender_srv.so",
+        "/opt/game/bin/vphysics.so": "/opt/game/bin/vphysics_srv.so",
+    },
+)
+
+oci_image(
+    name = "image",
+    base = "@debian_i386",
+    entrypoint = ["/entrypoint.sh"],
+    env = {
+        "SF_HOSTNAME": "",
+        "SF_MAP": "sf_skywalk",
+        "SF_MOTD": "",
+        "SF_PASSWORD": "",
+        "SF_PORT": "27015",
+        "RCON_PASSWORD": "",
+        "STEAM_GROUP_ID": "",
+        "STEAM_API_KEY": "",
+    },
+    tars = [
+        ":srcds_layer",
+        ":sourceforts_layer",
+        ":metamod_layer",
+        ":metamod_vdf_layer",
+        ":sourcemod_layer",
+        ":authorization_layer",
+        ":config_layer",
+        ":entrypoint_layer",
+    ],
+)
+
+oci_load(
+    name = "image_tarball",
+    image = ":image",
+    repo_tags = ["sourceforts-server:bazel"],
+)
+
+oci_push(
+    name = "image_push",
+    image = ":image",
+    remote_tags = ["latest"],
+    repository = "ghcr.io/lanofdoom/sourceforts-server",
+)

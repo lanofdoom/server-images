@@ -1,0 +1,52 @@
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_load", "oci_push")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+#
+# Satisfactory Layer
+#
+
+pkg_tar(
+    name = "satisfactory_layer",
+    srcs = ["@satisfactory//:files"],
+    package_dir = "/opt/game",
+)
+
+#
+# Final Image
+#
+
+pkg_tar(
+    name = "entrypoint_layer",
+    srcs = [":entrypoint.sh"],
+    package_dir = "/",
+    symlinks = {
+        "/root/.steam/sdk32/steamclient.so": "/opt/game/bin/steamclient.so",
+    },
+)
+
+oci_image(
+    name = "image",
+    base = "@debian_linux_amd64",
+    entrypoint = ["/entrypoint.sh"],
+    env = {
+        "PUID": "1000",
+        "PGID": "1000",
+    },
+    tars = [
+        ":satisfactory_layer",
+        ":entrypoint_layer",
+    ],
+)
+
+oci_load(
+    name = "image_tarball",
+    image = ":image",
+    repo_tags = ["satisfactory-server:bazel"],
+)
+
+oci_push(
+    name = "image_push",
+    image = ":image",
+    remote_tags = ["latest"],
+    repository = "ghcr.io/lanofdoom/satisfactory-server",
+)

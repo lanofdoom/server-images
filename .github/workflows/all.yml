@@ -1,0 +1,20 @@
+name: Publish All
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  push-counterstrikesource:
+    uses: ./.github/workflows/counterstrikesource.yml
+  push-hiddensource:
+    uses: ./.github/workflows/hiddensource.yml
+  push-left4dead2:
+    uses: ./.github/workflows/left4dead2.yml
+  push-satisfactory:
+    uses: ./.github/workflows/satisfactory.yml
+  push-sourceforts:
+    uses: ./.github/workflows/sourceforts.yml
