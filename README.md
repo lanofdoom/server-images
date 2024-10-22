@@ -2,14 +2,15 @@
 This repository contains the definitions for the Docker containers of the
 various game servers used by the LAN of DOOM.
 
-Documentation for each server as well as how to fetch it can be found in each
-game server folder's respective README.md.
+Documentation for each server as well as how to fetch it can be found in the
+README.md of each server's folder.
 
 On our own servers, we typically run
-[Watchtower](https://hub.docker.com/r/containrrr/watchtower) and rely on that to
+[Watchtower](https://hub.docker.com/r/containrrr/watchtower) and rely on it to
 automatically pull down the latest versions of these images. We configure our
-servers to poll every 5 minutes and update as soon as an update is available and
-we Watchtower with the following Docker command.
+servers to poll every 5 minutes for new images.
+
+We run Watchtower with the following Docker command.
 
 ```
 docker run -d \
