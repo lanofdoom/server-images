@@ -28,4 +28,4 @@ ln -f -s /data/Engine/Saved /opt/game/Engine/Saved
 chown -R nobody:nogroup /opt/game/Engine/Saved
 
 # Start server as nobody
-sudo -u nobody HOME=/data/home /opt/game/FactoryServer.sh
+sudo -u nobody HOME=/data/home /opt/game/FactoryServer.sh -Port=$PORT
