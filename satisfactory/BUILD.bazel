@@ -29,6 +29,7 @@ oci_image(
     base = "@debian_linux_amd64",
     entrypoint = ["/entrypoint.sh"],
     env = {
+        "PORT": "7777",
         "PUID": "1000",
         "PGID": "1000",
     },
