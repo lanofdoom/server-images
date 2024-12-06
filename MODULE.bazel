@@ -16,26 +16,45 @@ git_override(
 steam = use_extension("@rules_steam//:steam.bzl", "steam")
 
 # Counter Strike: Source
-steam.app(name = "counter_strike_source", app = "232330")
+steam.app(
+    name = "counter_strike_source",
+    app = "232330",
+)
 use_repo(steam, "counter_strike_source")
 
 # Hidden: Source
-steam.app(name = "srcds_base_2006_windows", app = "215", os = "windows")
+steam.app(
+    name = "srcds_base_2006_windows",
+    app = "215",
+    os = "windows",
+)
 use_repo(steam, "srcds_base_2006_windows")
-
-steam.app(name = "srcds_windows", app = "205", os = "windows")
+steam.app(
+    name = "srcds_windows",
+    app = "205",
+    os = "windows",
+)
 use_repo(steam, "srcds_windows")
 
 # Left 4 Dead 2
-steam.app(name = "left4dead2", app = "222860")
+steam.app(
+    name = "left4dead2",
+    app = "222860",
+)
 use_repo(steam, "left4dead2")
 
 # Satisfactory
-steam.app(name = "satisfactory", app = "1690800")
+steam.app(
+    name = "satisfactory",
+    app = "1690800",
+)
 use_repo(steam, "satisfactory")
 
 # SourceForts
-steam.app(name = "srcds_base_2013", app = "244310")
+steam.app(
+    name = "srcds_base_2013",
+    app = "244310",
+)
 use_repo(steam, "srcds_base_2013")
 
 #
@@ -55,11 +74,11 @@ use_repo(oci, "debian", "debian_linux_amd64")
 # Base image for 32-bit servers
 oci.pull(
     name = "debian_i386",
-    tag = "bookworm-slim",
-    platforms = ["linux/386"],
     image = "docker.io/i386/debian",
+    platforms = ["linux/386"],
+    tag = "bookworm-slim",
 )
-use_repo(oci, "debian_i386")
+use_repo(oci, "debian_i386", "debian_i386_linux_386")
 
 #
 # File Dependencies
@@ -94,23 +113,23 @@ http_file(
 # Windows SRCDS Dependencies
 http_archive(
     name = "auth_by_steam_group_windows",
+    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
     sha256 = "2ce9f93038773affe8d7c7acc4fe156735f095f287889cafeb07fb78f512007d",
     urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v2.3.0/auth_by_steam_group.zip"],
-    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
 )
 
 http_archive(
     name = "metamod_windows",
+    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
     sha256 = "764ef206a00768dc6810ff7344dfabd7b2d8ab4b3d426c5fad49d4818ac3228d",
     urls = ["https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1145-windows.zip"],
-    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
 )
 
 http_archive(
     name = "sourcemod_windows",
+    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
     sha256 = "1361a2df2b98658c88adb1793fdc152926180ed6c04f7d36457b7de4f8c0c415",
     urls = ["https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6528-windows.zip"],
-    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
 )
 
 # Counter Strike: Source Dependencies
@@ -208,9 +227,9 @@ http_file(
 # Hidden: Source Dependencies
 http_archive(
     name = "hidden",
+    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
     sha256 = "ae73d35c42a8521dc0c0ebda99e85f3e731176d04abeb7c6263ca4bca0cfe7ae",
     urls = ["http://www.hidden-source.com/downloads/hsb4b-full.zip"],
-    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
 )
 
 # Sourceforts Dependencies

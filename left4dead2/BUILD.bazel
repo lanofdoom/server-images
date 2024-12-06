@@ -36,7 +36,7 @@ pkg_tar(
 
 oci_image(
     name = "image",
-    base = "@debian_i386",
+    base = "@debian_i386_linux_386",
     entrypoint = ["/entrypoint.sh"],
     env = {
         "L4D2_HOST": "",
