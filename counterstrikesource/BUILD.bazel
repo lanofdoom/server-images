@@ -8,6 +8,7 @@ load("@rules_pkg//:pkg.bzl", "pkg_tar")
 pkg_tar(
     name = "counterstrikesource_layer",
     srcs = ["@counter_strike_source//:files"],
+    extension = "tgz",
     package_dir = "/opt/game",
 )
 
@@ -17,6 +18,7 @@ pkg_tar(
 
 pkg_tar(
     name = "maps_layer",
+    extension = "tgz",
     package_dir = "/opt/game/cstrike",
     deps = [
         "@maps//file",
@@ -29,6 +31,7 @@ pkg_tar(
 
 pkg_tar(
     name = "metamod_layer",
+    extension = "tgz",
     package_dir = "/opt/game/cstrike",
     deps = ["@metamod_linux//file"],
 )
@@ -40,6 +43,7 @@ pkg_tar(
 pkg_tar(
     name = "sourcemod_layer",
     empty_dirs = ["/opt/game/cstrike/addons/sourcemod/configs"],
+    extension = "tgz",
     package_dir = "/opt/game/cstrike",
     deps = ["@sourcemod_linux//file"],
 )
@@ -50,6 +54,7 @@ pkg_tar(
 
 pkg_tar(
     name = "authorization_layer",
+    extension = "tgz",
     package_dir = "/opt/game/cstrike",
     deps = ["@auth_by_steam_group_linux//file"],
 )
@@ -60,6 +65,7 @@ pkg_tar(
 
 pkg_tar(
     name = "plugins_layer",
+    extension = "tgz",
     package_dir = "/opt/game/cstrike",
     deps = [
         "@disable_buyzones//file",
@@ -84,6 +90,7 @@ pkg_tar(
 pkg_tar(
     name = "config_layer",
     srcs = [":server.cfg"],
+    extension = "tgz",
     package_dir = "/opt/game/cstrike/cfg/templates",
 )
 
@@ -94,6 +101,7 @@ pkg_tar(
 pkg_tar(
     name = "entrypoint_layer",
     srcs = [":entrypoint.sh"],
+    extension = "tgz",
     package_dir = "/",
     symlinks = {
         "/root/.steam/sdk32/steamclient.so": "/opt/game/bin/steamclient.so",

@@ -8,6 +8,7 @@ load("@rules_pkg//:pkg.bzl", "pkg_tar")
 pkg_tar(
     name = "srcds_layer",
     srcs = ["@srcds_windows//:files"],
+    extension = "tgz",
     package_dir = "/opt/game",
 )
 
@@ -18,6 +19,7 @@ pkg_tar(
 pkg_tar(
     name = "sdk_layer",
     srcs = ["@srcds_base_2006_windows//:files"],
+    extension = "tgz",
     package_dir = "/opt/game",
 )
 
@@ -28,6 +30,7 @@ pkg_tar(
 pkg_tar(
     name = "hidden_layer",
     srcs = ["@hidden//:all"],
+    extension = "tgz",
     package_dir = "/opt/game",
     strip_prefix = "external/_main~repos_bzlmod~hidden",
 )
@@ -39,6 +42,7 @@ pkg_tar(
 pkg_tar(
     name = "metamod_layer",
     srcs = ["@metamod_windows//:all"],
+    extension = "tgz",
     package_dir = "/opt/game/hidden",
     strip_prefix = "external/_main~repos_bzlmod~metamod",
 )
@@ -46,6 +50,7 @@ pkg_tar(
 pkg_tar(
     name = "metamod_vdf_layer",
     srcs = [":metamod.vdf"],
+    extension = "tgz",
     package_dir = "/opt/game/hidden/addons",
 )
 
@@ -57,6 +62,7 @@ pkg_tar(
     name = "sourcemod_layer",
     srcs = ["@sourcemod_windows//:all"],
     empty_dirs = ["/opt/game/hidden/addons/sourcemod/configs"],
+    extension = "tgz",
     package_dir = "/opt/game/hidden",
     strip_prefix = "external/_main~repos_bzlmod~sourcemod",
 )
@@ -68,6 +74,7 @@ pkg_tar(
 pkg_tar(
     name = "authorization_layer",
     srcs = ["@auth_by_steam_group_windows//:all"],
+    extension = "tgz",
     package_dir = "/opt/game/hidden",
     strip_prefix = "external/_main~repos_bzlmod~auth_by_steam_group",
 )
@@ -79,6 +86,7 @@ pkg_tar(
 pkg_tar(
     name = "config_layer",
     srcs = [":server.cfg"],
+    extension = "tgz",
     package_dir = "/opt/game/hidden/cfg/templates",
 )
 
@@ -89,6 +97,7 @@ pkg_tar(
 pkg_tar(
     name = "entrypoint_layer",
     srcs = [":entrypoint.sh"],
+    extension = "tgz",
     package_dir = "/",
 )
 

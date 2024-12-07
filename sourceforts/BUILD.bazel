@@ -8,6 +8,7 @@ load("@rules_pkg//:pkg.bzl", "pkg_tar")
 pkg_tar(
     name = "srcds_layer",
     srcs = ["@srcds_base_2013//:files"],
+    extension = "tgz",
     package_dir = "/opt/game",
 )
 
@@ -17,6 +18,7 @@ pkg_tar(
 
 pkg_tar(
     name = "sourceforts_layer",
+    extension = "tgz",
     package_dir = "/opt/game",
     deps = ["@sourceforts//file"],
 )
@@ -27,6 +29,7 @@ pkg_tar(
 
 pkg_tar(
     name = "metamod_layer",
+    extension = "tgz",
     package_dir = "/opt/game/sfclassic",
     deps = ["@metamod_linux//file"],
 )
@@ -34,6 +37,7 @@ pkg_tar(
 pkg_tar(
     name = "metamod_vdf_layer",
     srcs = [":metamod.vdf"],
+    extension = "tgz",
     package_dir = "/opt/game/sfclassic/addons",
 )
 
@@ -44,6 +48,7 @@ pkg_tar(
 pkg_tar(
     name = "sourcemod_layer",
     empty_dirs = ["/opt/game/sfclassic/addons/sourcemod/configs"],
+    extension = "tgz",
     package_dir = "/opt/game/sfclassic",
     deps = ["@sourcemod_linux//file"],
 )
@@ -54,6 +59,7 @@ pkg_tar(
 
 pkg_tar(
     name = "authorization_layer",
+    extension = "tgz",
     package_dir = "/opt/game/sfclassic",
     deps = ["@auth_by_steam_group_linux//file"],
 )
@@ -65,6 +71,7 @@ pkg_tar(
 pkg_tar(
     name = "config_layer",
     srcs = [":server.cfg"],
+    extension = "tgz",
     package_dir = "/opt/game/sfclassic/cfg/templates",
 )
 
@@ -75,6 +82,7 @@ pkg_tar(
 pkg_tar(
     name = "entrypoint_layer",
     srcs = [":entrypoint.sh"],
+    extension = "tgz",
     package_dir = "/",
     symlinks = {
         "/root/.steam/sdk32/steamclient.so": "/opt/game/bin/steamclient.so",
