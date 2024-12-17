@@ -1,4 +1,5 @@
 load("@rules_oci//oci:defs.bzl", "oci_image", "oci_load", "oci_push")
+load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 #
@@ -27,24 +28,34 @@ pkg_tar(
 # Hidden Layer
 #
 
+pkg_files(
+    name = "hidden_files",
+    srcs = ["@hidden//:all"],
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
 pkg_tar(
     name = "hidden_layer",
-    srcs = ["@hidden//:all"],
+    srcs = [":hidden_files"],
     extension = "tgz",
     package_dir = "/opt/game",
-    strip_prefix = "external/_main~_repo_rules~hidden",
 )
 
 #
 # MetaMod Layer
 #
 
+pkg_files(
+    name = "metamod_files",
+    srcs = ["@metamod_windows//:all"],
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
 pkg_tar(
     name = "metamod_layer",
-    srcs = ["@metamod_windows//:all"],
+    srcs = [":metamod_files"],
     extension = "tgz",
     package_dir = "/opt/game/hidden",
-    strip_prefix = "external/_main~_repo_rules~metamod_windows",
 )
 
 pkg_tar(
@@ -58,25 +69,35 @@ pkg_tar(
 # SourceMod Layer
 #
 
+pkg_files(
+    name = "sourcemod_files",
+    srcs = ["@sourcemod_windows//:all"],
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
 pkg_tar(
     name = "sourcemod_layer",
-    srcs = ["@sourcemod_windows//:all"],
+    srcs = [":sourcemod_files"],
     empty_dirs = ["/opt/game/hidden/addons/sourcemod/configs"],
     extension = "tgz",
     package_dir = "/opt/game/hidden",
-    strip_prefix = "external/_main~_repo_rules~sourcemod_windows",
 )
 
 #
 # Authorization Layer
 #
 
+pkg_files(
+    name = "authorization_files",
+    srcs = ["@auth_by_steam_group_windows//:all"],
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
 pkg_tar(
     name = "authorization_layer",
-    srcs = ["@auth_by_steam_group_windows//:all"],
+    srcs = [":authorization_files"],
     extension = "tgz",
     package_dir = "/opt/game/hidden",
-    strip_prefix = "external/_main~_repo_rules~auth_by_steam_group_windows",
 )
 
 #
