@@ -44,7 +44,7 @@ pkg_tar(
     srcs = ["@metamod_windows//:all"],
     extension = "tgz",
     package_dir = "/opt/game/hidden",
-    strip_prefix = "_main~_repo_rules~metamod_windows",
+    strip_prefix = "external/_main~_repo_rules~metamod_windows",
 )
 
 pkg_tar(
@@ -64,7 +64,7 @@ pkg_tar(
     empty_dirs = ["/opt/game/hidden/addons/sourcemod/configs"],
     extension = "tgz",
     package_dir = "/opt/game/hidden",
-    strip_prefix = "_main~_repo_rules~sourcemod_windows",
+    strip_prefix = "external/_main~_repo_rules~sourcemod_windows",
 )
 
 #
@@ -76,7 +76,7 @@ pkg_tar(
     srcs = ["@auth_by_steam_group_windows//:all"],
     extension = "tgz",
     package_dir = "/opt/game/hidden",
-    strip_prefix = "_main~_repo_rules~auth_by_steam_group_windows",
+    strip_prefix = "external/_main~_repo_rules~auth_by_steam_group_windows",
 )
 
 #

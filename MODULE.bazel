@@ -229,7 +229,7 @@ http_archive(
     name = "hidden",  # Changing `name` will break the Hidden: Source image
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
     sha256 = "ae73d35c42a8521dc0c0ebda99e85f3e731176d04abeb7c6263ca4bca0cfe7ae",
-    urls = ["http://www.hidden-source.com/downloads/hsb4b-full.zip"],
+    urls = ["https://github.com/lanofdoom/server-images/releases/download/Beta-4b/hsb4b-full.zip"],
 )
 
 # Sourceforts Dependencies
