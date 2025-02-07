@@ -1,0 +1,68 @@
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_load", "oci_push")
+load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+#
+# Server Layer
+#
+
+pkg_files(
+    name = "quake3_files",
+    srcs = ["@quake3//:all"],
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
+pkg_files(
+    name = "quake3_pk3s_files",
+    srcs = ["@quake3_pk3s//:all"],
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
+pkg_tar(
+    name = "quake3_layer",
+    srcs = [
+        ":quake3_files",
+        ":quake3_pk3s_files",
+    ],
+    extension = "tgz",
+    package_dir = "/opt/game",
+)
+
+#
+# Final Image
+#
+
+pkg_tar(
+    name = "entrypoint_layer",
+    srcs = [":entrypoint.sh"],
+    extension = "tgz",
+    package_dir = "/",
+)
+
+oci_image(
+    name = "image",
+    base = "@debian_linux_amd64",
+    entrypoint = ["/entrypoint.sh"],
+    env = {
+        "PORT": "27960",
+        "PUID": "1000",
+        "PGID": "1000",
+    },
+    tars = [
+        ":quake3_layer",
+        ":entrypoint_layer",
+    ],
+)
+
+oci_load(
+    name = "image_tarball",
+    image = ":image",
+    repo_tags = ["quake3-server:bazel"],
+)
+
+oci_push(
+    name = "image_push",
+    image = ":image",
+    remote_tags = ["latest"],
+    repository = "ghcr.io/lanofdoom/quake3-server",
+)

@@ -240,3 +240,18 @@ http_file(
     sha256 = "3d979831c178c4c70f8106816ae8c1dc4452f5a41a463499230cbc1bcea8a6b9",
     urls = ["https://github.com/lanofdoom/server-images/releases/download/v1.0-RC7/SFClassic-1.0-RC7-fix.tar.gz"],
 )
+
+# Quake3 Dependencies
+http_archive(
+    name = "quake3",
+    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
+    sha256 = "f71d6bdc36932f1701f8ba34b67d792618d91324626f00fa08bc228240743fae",
+    urls = ["https://github.com/lanofdoom/server-images/releases/download/1.36/release-linux-x86_64.zip"],
+)
+
+http_archive(
+    name = "quake3_pk3s",
+    build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
+    sha256 = "3e60727bc31297f30658c8bfb87757ef5ae70b514d3a44f029676cbb618c9968",
+    urls = ["https://github.com/lanofdoom/server-images/releases/download/1.36/quake3-latest-pk3s.zip"],
+)
