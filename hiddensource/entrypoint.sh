@@ -45,6 +45,7 @@ wine start /wait srcds.exe \
     -port "$HIDDEN_PORT" \
     -strictbindport \
     -console \
+    -tickrate 100 \
     +ip 0.0.0.0 \
     +map "$HIDDEN_MAP" \
     +rcon_password "$RCON_PASSWORD" \
