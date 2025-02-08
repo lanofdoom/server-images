@@ -18,3 +18,5 @@ jobs:
     uses: ./.github/workflows/satisfactory.yml
   push-sourceforts:
     uses: ./.github/workflows/sourceforts.yml
+  push-quake3:
+    uses: ./.github/workflows/quake3.yml
