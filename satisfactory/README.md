@@ -10,8 +10,6 @@ container. In order to ensure the server state is persisted across image
 updates, add the argument ``-v <LocalPath>:/data`` when starting the container.
 
 # Environmental Variables
-``PORT`` The UDP and TDP port used to run the server. ``7777`` by default.
-
 ``PUID`` The user ID used to run the server. ``1000`` by default.
 
 ``PGID`` The group ID used to run the server. ``1000`` by default.

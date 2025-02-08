@@ -29,6 +29,19 @@ pkg_tar(
 )
 
 #
+# Map Cycle
+#
+
+pkg_tar(
+    name = "mapcycle_layer",
+    srcs = [
+        ":mapcycle.cfg",
+    ],
+    extension = "tgz",
+    package_dir = "/opt/game/baseq3",
+)
+
+#
 # Final Image
 #
 
@@ -44,12 +57,18 @@ oci_image(
     base = "@debian_linux_amd64",
     entrypoint = ["/entrypoint.sh"],
     env = {
-        "PORT": "27960",
-        "PUID": "1000",
-        "PGID": "1000",
+        "Q3_FRAGLIMIT": "20",
+        "Q3_HOSTNAME": "",
+        "Q3_PASSWORD": "",
+        "Q3_SPEED": "320",
+        "RCON_PASSWORD": "",
     },
+    exposed_ports = [
+        "27960/udp",
+    ],
     tars = [
         ":quake3_layer",
+        ":mapcycle_layer",
         ":entrypoint_layer",
     ],
 )
