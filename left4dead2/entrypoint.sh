@@ -21,6 +21,7 @@ LD_LIBRARY_PATH="/opt/game:/opt/game/bin:${LD_LIBRARY_PATH:-}" /opt/game/srcds_l
     -port "$L4D2_PORT" \
     -strictbindport \
     -usercon \
+    -tickrate 240 \
     +ip 0.0.0.0 \
     +motd_enabled "$L4D2_MOTD_ENABLED" \
     +map "$L4D2_MAP" \
