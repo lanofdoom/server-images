@@ -22,4 +22,7 @@ sudo -u nobody HOME=/data/home /opt/game/ioq3ded.x86_64 \
     +set fraglimit $Q3_FRAGLIMIT \
     +set g_speed $Q3_SPEED \
     +set g_password $Q3_PASSWORD \
+    +set sv_fps 125 \
+    +set sv_minrate 99999 \
+    +set sv_maxrate 99999 \
     +exec mapcycle.cfg

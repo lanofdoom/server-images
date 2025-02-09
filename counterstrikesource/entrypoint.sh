@@ -31,7 +31,7 @@ LD_LIBRARY_PATH="/opt/game:/opt/game/bin:${LD_LIBRARY_PATH:-}" /opt/game/srcds_l
     -port "$CSS_PORT" \
     -strictbindport \
     -usercon \
-    -tickrate 240 \
+    -tickrate 66 \
     +ip 0.0.0.0 \
     +map "$CSS_MAP" \
     +rcon_password "$RCON_PASSWORD" \
