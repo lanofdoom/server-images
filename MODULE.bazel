@@ -105,10 +105,17 @@ http_file(
 )
 
 http_file(
+    name = "override_tickrate_linux",
+    downloaded_file_path = "override_tickrate.tar.gz",
+    sha256 = "4dc6c7745df6cb94552862e59d5a0c4b849ccbddeda6df3650f17c76f83b578e",
+    urls = ["https://github.com/lanofdoom/override-tickrate/releases/download/v1.0.0/override_tickrate.tar.gz"],
+)
+
+http_file(
     name = "sourcemod_linux",
     downloaded_file_path = "sourcemod.tar.gz",
-    sha256 = "4feae75f5db7c8d1a614573f50b4f3b0f1ea9683971a00c86ba1bf25c3aeb2ff",
-    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7172-linux.tar.gz"],
+    sha256 = "5ef5da65ea157e46ff13c1d042d89c7608df4235cb10ed3fe41bc3d2f29ae974",
+    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7177-linux.tar.gz"],
 )
 
 # Windows SRCDS Dependencies
@@ -129,8 +136,8 @@ http_archive(
 http_archive(
     name = "sourcemod_windows",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
-    sha256 = "b9bdbbcdb935dc2ff44e7ef71a1a6f6996038ee500996c0fa5be65358da26c99",
-    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7172-windows.zip"],
+    sha256 = "6c320e12cdccfc43ef3d7ae2b8d3a3ed97c6ec1d741286474abfce81b998f07d",
+    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7177-windows.zip"],
 )
 
 # Counter Strike: Source Dependencies

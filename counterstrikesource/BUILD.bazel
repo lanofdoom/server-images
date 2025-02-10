@@ -60,6 +60,17 @@ pkg_tar(
 )
 
 #
+# Override Tickrate Layer
+#
+
+pkg_tar(
+    name = "override_tickrate_layer",
+    extension = "tgz",
+    package_dir = "/opt/game/cstrike",
+    deps = ["@override_tickrate_linux//file"],
+)
+
+#
 # Plugins Layers
 #
 
@@ -128,6 +139,7 @@ oci_image(
         ":metamod_layer",
         ":sourcemod_layer",
         ":authorization_layer",
+        ":override_tickrate_layer",
         ":plugins_layer",
         ":config_layer",
         ":entrypoint_layer",
