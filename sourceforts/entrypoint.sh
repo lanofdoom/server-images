@@ -33,7 +33,7 @@ LD_LIBRARY_PATH="/opt/game:/opt/game/bin:${LD_LIBRARY_PATH:-}" /opt/game/srcds_l
     -port "$SF_PORT" \
     -strictbindport \
     -usercon \
-    -tickrate 66 \
+    -tickrate 100 \
     +ip 0.0.0.0 \
     +map "$SF_MAP" \
     +maxplayers 32 \
