@@ -256,6 +256,13 @@ http_archive(
     urls = ["https://github.com/lanofdoom/server-images/releases/download/1.36/release-linux-x86_64.zip"],
 )
 
+http_file(
+    name = "quake3_pak0",
+    downloaded_file_path = "pak0.pk3",
+    sha256 = "7ce8b3910620cd50a09e4f1100f426e8c6180f68895d589f80e6bd95af54bcae",
+    urls = ["https://github.com/nrempel/q3-server/raw/master/baseq3/pak0.pk3"],
+)
+
 http_archive(
     name = "quake3_pk3s",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",

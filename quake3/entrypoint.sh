@@ -1,11 +1,7 @@
 #!/bin/bash -ue
 
 # Install certificates and sudo
-apt update && apt install -y sudo wget
-
-# Download pak0.pk3
-wget -O /opt/game/baseq3/pak0.pk3 https://github.com/nrempel/q3-server/raw/master/baseq3/pak0.pk3
-echo "7ce8b3910620cd50a09e4f1100f426e8c6180f68895d589f80e6bd95af54bcae /opt/game/baseq3/pak0.pk3" | sha256sum -c
+apt update && apt install -y sudo
 
 # Mark server as executable
 chmod +x /opt/game/ioq3ded.x86_64
