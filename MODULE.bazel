@@ -93,15 +93,15 @@ http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_
 http_file(
     name = "auth_by_steam_group_linux",
     downloaded_file_path = "auth_by_steam_group.tar.gz",
-    sha256 = "95cb0dd02c46e81594d08edd6456ca2d929b3768235deedf8b8397aa05c1ee1f",
-    urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v2.3.0/auth_by_steam_group.tar.gz"],
+    sha256 = "831ef880fa0938cea5275ddefab7723a578fbeaa4670be0a44c8b49a8ca9147a",
+    urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v2.3.1/auth_by_steam_group.tar.gz"],
 )
 
 http_file(
     name = "metamod_linux",
     downloaded_file_path = "metamod.tar.gz",
-    sha256 = "48bde3d75b66458deeba2b97b213cc462ae61bb115c408eef517a4bf95cad859",
-    urls = ["https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1156-linux.tar.gz"],
+    sha256 = "f16e67d8de30a46edb2aee8909a885f9f025993284596bb0cfc83b5b32eae05f",
+    urls = ["https://mms.alliedmods.net/mmsdrop/1.12/mmsource-1.12.0-git1219-linux.tar.gz"],
 )
 
 http_file(
@@ -114,30 +114,30 @@ http_file(
 http_file(
     name = "sourcemod_linux",
     downloaded_file_path = "sourcemod.tar.gz",
-    sha256 = "5ef5da65ea157e46ff13c1d042d89c7608df4235cb10ed3fe41bc3d2f29ae974",
-    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7177-linux.tar.gz"],
+    sha256 = "a02630e6c87494cb9b2d7ff6628a41f819bdf594e49afe7a5341dba7f954d18b",
+    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7206-linux.tar.gz"],
 )
 
 # Windows SRCDS Dependencies
 http_archive(
     name = "auth_by_steam_group_windows",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
-    sha256 = "2ce9f93038773affe8d7c7acc4fe156735f095f287889cafeb07fb78f512007d",
-    urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v2.3.0/auth_by_steam_group.zip"],
+    sha256 = "f2b37e40ce1affae286173e3d3f50d7875030290cbe363c6bf71e294a4e3f650",
+    urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v2.3.1/auth_by_steam_group.zip"],
 )
 
 http_archive(
     name = "metamod_windows",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
-    sha256 = "d6eacb35038a8aa5b31d162099b16178d50f3a9d1420a741b4209a2f0b591484",
-    urls = ["https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1156-windows.zip"],
+    sha256 = "fcd1561db37b6d9f9405088704fe724a0203eba050d17476993525c22c077899",
+    urls = ["https://mms.alliedmods.net/mmsdrop/1.12/mmsource-1.12.0-git1219-windows.zip"],
 )
 
 http_archive(
     name = "sourcemod_windows",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
-    sha256 = "6c320e12cdccfc43ef3d7ae2b8d3a3ed97c6ec1d741286474abfce81b998f07d",
-    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7177-windows.zip"],
+    sha256 = "8a29b46b188903f4cab10e7262fa84d23a938aaee44977c8917e45b48eed3e37",
+    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7206-windows.zip"],
 )
 
 # Counter Strike: Source Dependencies
