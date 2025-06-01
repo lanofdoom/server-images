@@ -93,7 +93,7 @@ http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_
 http_file(
     name = "auth_by_steam_group_linux",
     downloaded_file_path = "auth_by_steam_group.tar.gz",
-    sha256 = "831ef880fa0938cea5275ddefab7723a578fbeaa4670be0a44c8b49a8ca9147a",
+    sha256 = "f6b997eea6b6f05f6d373e8b9561d324d478ae0ee46c918938dcf79f4a14c2f3",
     urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v2.3.1/auth_by_steam_group.tar.gz"],
 )
 
@@ -122,7 +122,7 @@ http_file(
 http_archive(
     name = "auth_by_steam_group_windows",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
-    sha256 = "f2b37e40ce1affae286173e3d3f50d7875030290cbe363c6bf71e294a4e3f650",
+    sha256 = "5608c0c334e2f99f5e488dff0a19540468809379ad574d095ff235cdef90baee",
     urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v2.3.1/auth_by_steam_group.zip"],
 )
 

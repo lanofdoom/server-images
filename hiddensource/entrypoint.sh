@@ -7,7 +7,7 @@ apt-get update && apt-get install -y ca-certificates wine xvfb
 [ -z "${HIDDEN_MOTD}" ] || echo "${HIDDEN_MOTD}" > /opt/game/hidden/motd.txt
 
 #  Hack to make auth plugin load properly
-cp /opt/game/hidden/addons/sourcemod/extensions/auth_by_steam_group.ext.1.ep1.dll /opt/game/hidden/addons/sourcemod/extensions/auth_by_steam_group.ext.dll
+cp /opt/game/hidden/addons/sourcemod/extensions/auth_by_steam_group.ext.2.ep1.dll /opt/game/hidden/addons/sourcemod/extensions/auth_by_steam_group.ext.dll
 
 # Generate mapcycle
 ls /opt/game/hidden/maps/*.bsp | grep -v tutorial | sed -e 's/.*\/\([^\/]*\).bsp/\1/' > /opt/game/hidden/cfg/mapcycle.txt
