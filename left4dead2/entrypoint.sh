@@ -15,6 +15,9 @@ echo "hostname \"$L4D2_HOSTNAME\"" >> /opt/game/left4dead2/cfg/server.cfg
 # Mark srcds_linux as executable
 chmod +x /opt/game/srcds_linux
 
+# cd into server directory
+cd /opt/game
+
 # Call srcds_linux instead of srcds_run to avoid restart logic
 LD_LIBRARY_PATH="/opt/game:/opt/game/bin:${LD_LIBRARY_PATH:-}" /opt/game/srcds_linux \
     -game left4dead2 \
