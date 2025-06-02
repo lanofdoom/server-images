@@ -121,7 +121,7 @@ pkg_tar(
 
 oci_image(
     name = "image",
-    base = "@debian_i386_linux_386",
+    base = "@debian",
     entrypoint = ["/entrypoint.sh"],
     env = {
         "CSS_HOSTNAME": "",
