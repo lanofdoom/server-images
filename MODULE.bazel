@@ -62,7 +62,6 @@ use_repo(steam, "srcds_base_2013")
 # Base Images
 #
 
-# Base image for 64-bit servers
 oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
 oci.pull(
     name = "debian",
@@ -71,15 +70,6 @@ oci.pull(
     tag = "bookworm-slim",
 )
 use_repo(oci, "debian", "debian_linux_amd64")
-
-# Base image for 32-bit servers
-oci.pull(
-    name = "debian_i386",
-    image = "docker.io/i386/debian",
-    platforms = ["linux/386"],
-    tag = "bookworm-slim",
-)
-use_repo(oci, "debian_i386", "debian_i386_linux_386")
 
 #
 # File Dependencies
@@ -122,7 +112,7 @@ http_file(
 http_archive(
     name = "auth_by_steam_group_windows",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
-    sha256 = "7bd1ae655e426720299f6726605dfef95d91cbfffbc6a506fe32eb262bb91c16",
+    sha256 = "ae6796674fb42ef3c8eb9290d38f2b34a83742bb4da0ec73d0928cefff5a6606",
     urls = ["https://github.com/lanofdoom/auth-by-steam-group/releases/download/v3.0.0/auth_by_steam_group.zip"],
 )
 

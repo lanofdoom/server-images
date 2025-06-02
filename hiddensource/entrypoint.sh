@@ -32,14 +32,14 @@ export TERM=xterm
 Xvfb :99 -screen 0 800x600x16 &
 sleep 1s
 
-# Create temporary wine root
+# Configure wine
 export WINEPREFIX=$(mktemp -d)
+export WINEARCH=win32
 
 # CD into game directory
 cd /opt/game
 
-# Configure wine and start game
-export DISPLAY=:99.0
+# Start game
 wine start /wait srcds.exe \
     -game hidden \
     -port "$HIDDEN_PORT" \
