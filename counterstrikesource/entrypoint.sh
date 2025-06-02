@@ -1,7 +1,7 @@
 #!/bin/bash -ue
 
 # Install server and auth_by_steam_group dependencies
-dpkg --add-architecture i386 && apt-get update && apt-get install -y lib32gcc-s1 ca-certificates libcurl4:i386 libstdc++6:i386
+dpkg --add-architecture i386 && apt-get update && apt-get install -y lib32gcc-s1 ca-certificates libboost-system1.74.0:i386 libssl3:i386 libcrypt1:i386 libstdc++6:i386
 
 # Set MOTD
 [ -z "${CSS_MOTD}" ] || echo "${CSS_MOTD}" > /opt/game/cstrike/motd.txt
