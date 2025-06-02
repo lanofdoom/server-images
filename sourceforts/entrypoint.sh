@@ -1,7 +1,7 @@
 #!/bin/bash -ue
 
-# Install auth_by_steam_group dependencies
-apt-get update && apt-get install -y ca-certificates libcurl4
+# Install server and auth_by_steam_group dependencies
+dpkg --add-architecture i386 && apt-get update && apt-get install -y lib32gcc-s1 ca-certificates libcurl4:i386 libstdc++6:i386
 
 # Set MOTD
 [ -z "${SF_MOTD}" ] || echo "${SF_MOTD}" > /opt/game/sfclassic/motd.txt
