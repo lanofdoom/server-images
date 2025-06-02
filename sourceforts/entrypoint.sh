@@ -27,6 +27,9 @@ echo "hostname \"$SF_HOSTNAME\"" > /opt/game/sfclassic/cfg/phase_combat.cfg
 # Mark srcds_linux as executable
 chmod +x /opt/game/srcds_linux
 
+# cd into server directory
+cd /opt/game
+
 # Call srcds_linux instead of srcds_run to avoid restart logic
 LD_LIBRARY_PATH="/opt/game:/opt/game/bin:${LD_LIBRARY_PATH:-}" /opt/game/srcds_linux \
     -game sfclassic \
