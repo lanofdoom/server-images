@@ -13,29 +13,6 @@ pkg_tar(
 )
 
 #
-# MetaMod Layer
-#
-
-pkg_tar(
-    name = "metamod_layer",
-    extension = "tgz",
-    package_dir = "/opt/game/left4dead2",
-    deps = ["@metamod_linux//file"],
-)
-
-#
-# SourceMod Layer
-#
-
-pkg_tar(
-    name = "sourcemod_layer",
-    empty_dirs = ["/opt/game/left4dead2/addons/sourcemod/configs"],
-    extension = "tgz",
-    package_dir = "/opt/game/left4dead2",
-    deps = ["@sourcemod_linux//file"],
-)
-
-#
 # Config Layer
 #
 
@@ -62,7 +39,7 @@ pkg_tar(
 
 oci_image(
     name = "image",
-    base = "@debian_i386_linux_386",
+    base = "@debian",
     entrypoint = ["/entrypoint.sh"],
     env = {
         "L4D2_HOST": "",
@@ -77,8 +54,6 @@ oci_image(
     },
     tars = [
         ":left4dead2_layer",
-        ":metamod_layer",
-        ":sourcemod_layer",
         ":config_layer",
         ":entrypoint_layer",
     ],

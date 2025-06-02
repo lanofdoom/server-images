@@ -1,7 +1,7 @@
 #!/bin/bash -ue
 
 # Install srcds required certificates
-apt-get update && apt-get install -y ca-certificates
+apt-get update && apt-get install -y ca-certificates lib32gcc-s1
 
 # Set host name and MOTD
 [ -z "${L4D2_HOST}" ] || echo "${L4D2_HOST}" > /opt/game/left4dead2/host.txt
