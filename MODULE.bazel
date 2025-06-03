@@ -97,7 +97,7 @@ http_file(
 http_file(
     name = "override_tickrate_linux",
     downloaded_file_path = "override_tickrate.tar.gz",
-    sha256 = "0f2861fd822761ee35345679d1f732c9640ad098350073f3d5d8336e9186092c",
+    sha256 = "12800d07c4fd7d86fd131b2c398687d41c04f6cf794bf0ecddce4755fe8a14d0",
     urls = ["https://github.com/lanofdoom/override-tickrate/releases/download/v1.0.1/override_tickrate.tar.gz"],
 )
 
