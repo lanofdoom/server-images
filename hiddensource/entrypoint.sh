@@ -1,7 +1,7 @@
 #!/bin/bash -ue
 
-# Install auth_by_steam_group dependencies
-apt-get update && apt-get install -y ca-certificates wine xvfb
+# Install auth_by_steam_group and server dependencies
+dpkg --add-architecture i386 && apt-get update && apt-get install -y ca-certificates wine wine32 xvfb
 
 # Set MOTD
 [ -z "${HIDDEN_MOTD}" ] || echo "${HIDDEN_MOTD}" > /opt/game/hidden/motd.txt
