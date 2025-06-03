@@ -33,6 +33,7 @@ Xvfb :99 -screen 0 800x600x16 &
 sleep 1s
 
 # Configure wine
+export DISPLAY=:99
 export WINEPREFIX=$(mktemp -d)
 export WINEARCH=win32
 
