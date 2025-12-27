@@ -90,7 +90,7 @@ http_file(
 http_file(
     name = "metamod_linux",
     downloaded_file_path = "metamod.tar.gz",
-    sha256 = "f16e67d8de30a46edb2aee8909a885f9f025993284596bb0cfc83b5b32eae05f",
+    sha256 = "",
     urls = ["https://mms.alliedmods.net/mmsdrop/1.12/mmsource-1.12.0-git1219-linux.tar.gz"],
 )
 
@@ -104,8 +104,8 @@ http_file(
 http_file(
     name = "sourcemod_linux",
     downloaded_file_path = "sourcemod.tar.gz",
-    sha256 = "a02630e6c87494cb9b2d7ff6628a41f819bdf594e49afe7a5341dba7f954d18b",
-    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7206-linux.tar.gz"],
+    sha256 = "",
+    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7221-linux.tar.gz"],
 )
 
 # Windows SRCDS Dependencies
