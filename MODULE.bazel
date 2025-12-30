@@ -1,8 +1,8 @@
 "Docker images for game servers as used by the LAN of DOOM"
 module(name = "servers")
 
-bazel_dep(name = "rules_pkg", version = "1.0.1")
-bazel_dep(name = "rules_oci", version = "2.0.0")
+bazel_dep(name = "rules_pkg", version = "1.2.0")
+bazel_dep(name = "rules_oci", version = "2.2.7")
 bazel_dep(name = "rules_steam")
 git_override(
     module_name = "rules_steam",
