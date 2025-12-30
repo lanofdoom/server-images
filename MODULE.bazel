@@ -90,7 +90,7 @@ http_file(
 http_file(
     name = "metamod_linux",
     downloaded_file_path = "metamod.tar.gz",
-    sha256 = "",
+    sha256 = "f16e67d8de30a46edb2aee8909a885f9f025993284596bb0cfc83b5b32eae05f",
     urls = ["https://mms.alliedmods.net/mmsdrop/1.12/mmsource-1.12.0-git1219-linux.tar.gz"],
 )
 
@@ -104,7 +104,7 @@ http_file(
 http_file(
     name = "sourcemod_linux",
     downloaded_file_path = "sourcemod.tar.gz",
-    sha256 = "",
+    sha256 = "8924d7cd664a52ff0dd84a493949040865d0984b01f3c4b569db7357c592b56f",
     urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7221-linux.tar.gz"],
 )
 
@@ -126,8 +126,8 @@ http_archive(
 http_archive(
     name = "sourcemod_windows",
     build_file_content = "filegroup(name = \"all\", srcs = glob(include = [\"**/*\"], exclude = [\"WORKSPACE\", \"BUILD.bazel\"]), visibility = [\"//visibility:public\"])",
-    sha256 = "8a29b46b188903f4cab10e7262fa84d23a938aaee44977c8917e45b48eed3e37",
-    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7206-windows.zip"],
+    sha256 = "01aeb409960ebc5c7caf3bcd8a6c95409acd5d63bd91563a3ca105c9ac1053e7",
+    urls = ["https://sm.alliedmods.net/smdrop/1.12/sourcemod-1.12.0-git7221-windows.zip"],
 )
 
 # Counter Strike: Source Dependencies
