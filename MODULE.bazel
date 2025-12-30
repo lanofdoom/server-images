@@ -176,7 +176,7 @@ http_file(
 http_file(
     name = "maps",
     downloaded_file_path = "maps.tar.gz",
-    sha256 = "d46c07b3e3ad4177cb7c387d2b52b270ba4c4a677df1f937037e2363230f6965",
+    sha256 = "b6b4db1b6ae53a0b89cbae7ac68c6d117b0a4181da8f0b7050333b81a606e3c4",
     urls = ["https://github.com/lanofdoom/counterstrikesource-maps/releases/download/v6.1.0/maps.tar.gz"],
 )
 
