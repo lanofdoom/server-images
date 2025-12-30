@@ -30,7 +30,7 @@ export TERM=xterm
 
 # Start display server
 Xvfb :99 -screen 0 800x600x16 &
-sleep 1s
+sleep 5s
 
 # Configure wine
 export DISPLAY=:99
