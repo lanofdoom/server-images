@@ -21,4 +21,5 @@ sudo -u nobody HOME=/data/home /opt/game/ioq3ded.x86_64 \
     +set sv_fps 125 \
     +set sv_minrate 99999 \
     +set sv_maxrate 99999 \
+    +set sv_maxclients 64 \
     +exec mapcycle.cfg
