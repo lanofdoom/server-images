@@ -28,9 +28,12 @@ echo "hostname \"$HIDDEN_HOSTNAME\"" >> /opt/game/hidden/cfg/server.cfg
 # Set terminal
 export TERM=xterm
 
+# Remove the old display lock file
+rm /tmp/.X99-lock
+
 # Start display server
 Xvfb :99 -screen 0 800x600x16 &
-sleep 5s
+sleep 10s
 
 # Configure wine
 export DISPLAY=:99
@@ -46,6 +49,7 @@ wine start /wait srcds.exe \
     -port "$HIDDEN_PORT" \
     -strictbindport \
     -console \
+    -condebug \
     -tickrate 100 \
     +ip 0.0.0.0 \
     +map "$HIDDEN_MAP" \
