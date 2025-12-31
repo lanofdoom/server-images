@@ -13,7 +13,7 @@ chown -R nobody:nogroup /data
 # Launch Server
 sudo -u nobody HOME=/data/home /opt/game/ioq3ded.x86_64 \
     +set dedicated 1 \
-    +set rconpasswword $RCON_PASSWORD \
+    +set rconpassword $RCON_PASSWORD \
     +set sv_hostname $Q3_HOSTNAME \
     +set fraglimit $Q3_FRAGLIMIT \
     +set g_speed $Q3_SPEED \
