@@ -29,7 +29,7 @@ echo "hostname \"$HIDDEN_HOSTNAME\"" >> /opt/game/hidden/cfg/server.cfg
 export TERM=xterm
 
 # Remove the old display lock file
-rm /tmp/.X99-lock
+rm -f /tmp/.X99-lock
 
 # Start display server
 Xvfb :99 -screen 0 800x600x16 &
