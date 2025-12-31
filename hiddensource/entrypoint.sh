@@ -9,6 +9,10 @@ dpkg --add-architecture i386 && apt-get update && apt-get install -y ca-certific
 #  Hack to make auth plugin load properly
 cp /opt/game/hidden/addons/sourcemod/extensions/auth_by_steam_group.ext.2.ep1.dll /opt/game/hidden/addons/sourcemod/extensions/auth_by_steam_group.ext.dll
 
+# Remove broken maps
+rm -f /opt/game/hidden/maps/hdn_decay.bsp
+rm -f /opt/game/hidden/maps/hdn_origin.bsp
+
 # Generate mapcycle
 ls /opt/game/hidden/maps/*.bsp | grep -v tutorial | sed -e 's/.*\/\([^\/]*\).bsp/\1/' > /opt/game/hidden/cfg/mapcycle.txt
 
@@ -32,7 +36,7 @@ export TERM=xterm
 rm -f /tmp/.X99-lock
 
 # Start display server
-Xvfb :99 -screen 0 800x600x16 &
+Xvfb :99 -screen 0 1x1x8 &
 sleep 10s
 
 # Configure wine
