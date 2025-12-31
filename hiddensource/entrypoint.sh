@@ -43,8 +43,11 @@ export WINEARCH=win32
 # CD into game directory
 cd /opt/game
 
-# Redirect console.log to stdout
-ln -sf /dev/stdout /opt/game/hidden/console.log
+# Create the log file if it does not exist
+touch /opt/game/hidden/console.log
+
+# Tail the log file in the background to stdout
+tail -f /opt/game/hidden/console.log &
 
 # Start game
 wine start /wait srcds.exe \
